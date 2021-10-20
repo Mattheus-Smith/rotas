@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script src="aplicacoes.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container mt">
+        <div class="row justify-content-around">
+            <button class="btn btn-primary active" onclick="redirecionar(`menu`)">Menus</button>
+            <button class="btn btn-warning" data-toggle="modal" data-target="#addpedido">Adiconar Pedido</button>
+            <button class="btn btn-danger" onclick="redirecionar(`rotas`)">Exibir Rotas</button>
+            <button class="btn btn-success" onclick="redirecionar(`pedidos`)">Verificar Pedido</button>
+        </div>
+    </div>
+
+    <!-- modal de adicionar -->
+    <div class="modal fade" id="addpedido" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <!-- header do modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Pedido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="zerarValor()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- body do modal -->
+                <div class="modal-body">
+                    <form>
+                        <!-- pedido -->
+                        <div class="form-row">
+                            <div class="form-group col-md">
+                                <label>Numero do pedido</label>
+                                <input type="text" class="form-control" id="pedido" placeholder="EX: 123456">
+                            </div>
+                        </div>
+                        <!-- endereço e numero -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Endereço</label>
+                                <input type="text" class="form-control" id="endereço" placeholder="EX: Avenida Torquato tapajos">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Numero</label>
+                                <input type="text" class="form-control" id="numero" placeholder="EX: 1337">
+                            </div>
+                        </div>
+                        <!-- complemento e bairro -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Bairro</label>
+                                <input type="text" class="form-control" id="bairro" placeholder="EX: Ponta Negra">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>complemento</label>
+                                <input type="text" class="form-control" id="complemento" placeholder="EX: 123456">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- footer do modal -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" data-dismiss="modal" onclick="zerarValor()">Close</button>
+                    <button type="submit" class="btn btn-primary" onclick="addPedido()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container mt">
+        <div class="row justify-content-center">
+            <img src="bairros_manaus.jpg" usemap="#image-map">
+            <map name="image-map">
+                <area target="" alt="Lagoa Azul" title="Lagoa Azul" href="" coords="232,15,234,28,233,40,233,51,235,60,234,73,234,86,246,92,254,98,263,105,271,112,279,121,284,129,291,134,299,138,309,141,315,144,322,143,327,148,333,144,340,144,344,148,348,154,357,151,364,147,371,142,378,142,378,134,379,125,377,95,371,64,359,7,343,7,326,7,312,16,297,18,289,24,286,32,279,17" shape="poly">
+                <area target="" alt="56" title="Taruma-Acu" href="" coords="231,15,223,20,214,22,203,29,195,37,186,42,182,51,162,61,147,67,133,76,123,76,111,77,98,82,86,82,72,88,69,96,66,102,66,111,68,116,68,127,69,134,69,150,64,155,68,160,68,168,72,176,79,179,80,186,86,191,104,183,107,191,114,191,121,193,130,191,139,182,149,178,162,179,173,169,182,159,191,152,200,150,214,148,223,155,233,159,241,165,244,169,254,160,264,150,275,142,276,129,275,118,268,110,248,96,232,87" shape="poly">
+                <area target="" alt="Taruma" title="Taruma" href="#" coords="159,181,143,182,130,189,122,204,123,222,124,233,127,239,130,249,132,261,136,269,138,279,134,289,130,297,121,305,117,314,120,324,127,328,132,329,139,329,147,335,155,337,162,336,165,328,164,316,175,314,184,315,192,315,199,311,206,305,212,305,223,301,233,299,247,298,257,297,256,284,268,268,272,257,261,245,248,231,238,224,238,200,239,188,245,173,228,160,213,153,191,156,181,162,171,174" shape="poly">
+                <area target="" alt="Santa Etelvina" title="Santa Etelvina" href="" coords="278,126,290,132,300,138,314,142,327,151,318,157,316,169,316,181,314,191,304,200,290,183,271,175,255,157,271,146" shape="poly">
+                <area target="" alt="Nova CIdade" title="Nova CIdade" href="" coords="327,149,342,146,350,156,368,144,381,138,386,167,388,192,394,210,394,221,383,215,373,213,365,231,358,228,348,221,350,210,348,185" shape="poly">
+                <area target="" alt="Colonia Terra Nova" title="Colonia Terra Nova" href="" coords="253,159,265,177,286,183,299,201,311,208,319,224,329,229,329,236,311,239,296,242,296,247,288,247,288,242,278,239,268,252,245,229,235,211,235,185" shape="poly">
+                <area target="" alt="Monte das Oliveiras" title="Monte das Oliveiras" href="" coords="327,151,335,164,350,182,348,200,348,221,335,228,322,221,314,208,307,197,317,187,317,172" shape="poly">
+                <area target="" alt="Cidade Nova" title="Cidade Nova" href="" coords="332,229,348,218,365,234,373,211,391,218,404,229,412,239,412,262,401,275,396,277,381,275,376,290,378,301,358,301,355,290,340,285,330,290,317,285,314,242" shape="poly">
+                <area target="" alt="Colonia Santo Antonio" title="Colonia Santo Antonio" href="" coords="302,239,314,242,314,285,289,288,276,293,258,293,258,277,271,262,296,267" shape="poly">
+                <area target="" alt="Novo Israel" title="Novo Israel" href="" coords="279,242,296,247,296,267,271,259" shape="poly">
+                <area target="" alt="Cidade de Deus" title="Cidade de Deus" href="" coords="396,211,409,211,414,224,460,216,470,236,465,259,447,288,409,267,412,247" shape="poly">
+                <area target="" alt="Novo Aleixo" title="Novo Aleixo" href="" coords="353,364,396,341,414,321,429,303,450,290,406,267,399,279,381,277,378,303,360,303,358,326,345,341" shape="poly">
+                <area target="" alt="54" title="Ponta Negra" href="" coords="123,203,87,195,89,213,100,226,112,234,100,236,79,242,79,270,64,283,59,303,41,298,51,329,72,334,92,354,105,380,123,388,128,403,138,418,151,393,153,380,138,375,135,344,118,316,128,290,138,272,125,242" shape="poly">
+                <area target="" alt="14" title="Lirio do vale" href="" coords="120,318,156,334,158,352,166,367,166,388,151,388,151,377,141,377,135,347" shape="poly">
+                <area target="" alt="14" title="Nova Esperança" href="" coords="161,362,176,362,181,377,187,393,199,401,194,411,169,398,166,385" shape="poly">
+                <area target="" alt="12" title="Santo Agostinho" href="" coords="151,390,166,388,174,403,161,421,143,424,146,408" shape="poly">
+                <area target="" alt="10" title="Compensa" href="" coords="144,424,154,447,177,455,197,470,195,447,200,429,210,422,192,404,177,396,169,416" shape="poly">
+                <area target="" alt="11" title="Sao Jorge" href="" coords="199,402,215,414,227,414,238,427,253,427,233,453,210,453,207,427" shape="poly">
+                <area target="" alt="9" title="Vila da Prata" href="" coords="202,424,194,447,212,455" shape="poly">
+                <area target="" alt="8" title="Santo Antonio" href="" coords="197,450,212,458,233,453,235,461,225,468,197,466" shape="poly">
+                <area target="" alt="7" title="Gloria" href="" coords="235,458,225,468,230,489,238,478" shape="poly">
+                <area target="" alt="6" title="Sao Raimundo" href="" coords="204,469,225,469,230,489,222,502" shape="poly">
+            </map>
+        </div>
+    </div>
+    
+</body>
+</html>

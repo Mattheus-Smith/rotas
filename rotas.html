@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script src="aplicacoes.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container mt">
+        <div class="row justify-content-around">
+            <button class="btn btn-primary" onclick="redirecionar(`menu`)">Menus</button>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addpedido">Adiconar Pedido</button>
+            <button class="btn btn-danger" onclick="redirecionar(`rotas`)">Exibir Rotas</button>
+            <button class="btn btn-success" onclick="redirecionar(`pedidos`)">Verificar Pedido</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addpedido" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <!-- header do modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Pedido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="zerarValor()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- body do modal -->
+                <div class="modal-body">
+                    <form>
+                        <!-- pedido -->
+                        <div class="form-row">
+                            <div class="form-group col-md">
+                                <label>Numero do pedido</label>
+                                <input type="text" class="form-control" id="pedido" placeholder="EX: 123456">
+                            </div>
+                        </div>
+                        <!-- endereço e numero -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Endereço</label>
+                                <input type="text" class="form-control" id="endereço" placeholder="EX: Avenida Torquato tapajos">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Numero</label>
+                                <input type="text" class="form-control" id="numero" placeholder="EX: 1337">
+                            </div>
+                        </div>
+                        <!-- complemento e bairro -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Bairro</label>
+                                <input type="text" class="form-control" id="bairro" placeholder="EX: Ponta Negra">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>complemento</label>
+                                <input type="text" class="form-control" id="complemento" placeholder="EX: 123456">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- footer do modal -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" data-dismiss="modal" onclick="zerarValor()">Close</button>
+                    <button type="submit" class="btn btn-primary" onclick="addPedido()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
